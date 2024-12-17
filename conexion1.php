@@ -25,8 +25,8 @@ try {
     $res->bindParam(':password', $pass);*/
   
     if ($res) {
-        echo "Inicio de sesión exitoso.";
-        header("Location: inicio.html");
+       
+        header("Location:inicio.html");
         exit();
     } else {
         //echo "Usuario o contraseña incorrectos.";
