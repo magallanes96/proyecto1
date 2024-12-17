@@ -15,7 +15,7 @@ try {
         $user = $_POST['username'];
    $pass = $_POST['password'];
     // Consulta para verificar las credenciales
-    $stmt = $conn->prepare("SELECT id FROM usuarios WHERE username =:username AND password =:password");
+    $stmt = $conn->prepare("SELECT id FROM inicio_sesion WHERE usuario =:username AND password =:password");
     $stmt->bindParam(':username', $user);
     $stmt->bindParam(':password', $pass);
     $stmt->execute();
