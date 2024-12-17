@@ -6,7 +6,7 @@ try {
     echo "Conexión exitosa a Azure SQL Database.<br>";
 
     // Ejecuta una consulta de prueba
-    $query = "SELECT TOP 5 * FROM TuTabla"; // Reemplaza 'TuTabla' con una tabla real
+    $query = "SELECT* FROM Empleados"; // Reemplaza 'TuTabla' con una tabla real
     $stmt = $conn->query($query);
 
     foreach ($stmt as $row) {
