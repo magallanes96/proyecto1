@@ -1,16 +1,19 @@
 <?php
-// PHP Data Objects(PDO) Sample Code:
 try {
     $conn = new PDO("sqlsrv:server = tcp:memo96.database.windows.net,1433; Database = SafePass", "memo96", "Hmcrgl09");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $e) {
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
-}
 
-// SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "memo96", "pwd" => "Hmcrgl09", "Database" => "SafePass", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:memo96.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
+    echo "Conexión exitosa a Azure SQL Database.<br>";
+
+    // Ejecuta una consulta de prueba
+    $query = "SELECT TOP 5 * FROM TuTabla"; // Reemplaza 'TuTabla' con una tabla real
+    $stmt = $conn->query($query);
+
+    foreach ($stmt as $row) {
+        print_r($row); // Muestra los resultados
+        echo "<br>";
+    }
+} catch (PDOException $e) {
+    echo "Error de conexión: " . $e->getMessage();
+}
 ?>
