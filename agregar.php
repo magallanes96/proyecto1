@@ -37,7 +37,7 @@
                 <label for="Correo">N.Tarjeta</label>
                 <input type="text" name="Correo" id="Correo" placeholder="">
             </div>
-            <button>Agregar </button>
+            <button type="submit">Agregar </button>
 
 
             </div>
@@ -56,8 +56,8 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Consulta SQL
     $sql = "SELECT id, fecha, temperatura, hora, estado FROM registro";
-    $stmt = $conexion->prepare($sql);
-    $stmt->execute();
+    $stmt = $con->prepare($sql);
+    //$stmt->execute();
 
     // Crear tabla HTML
     echo "<table border='1'>
@@ -83,7 +83,7 @@ try {
     echo "</table>";
 
     // Cerrar la conexión
-    $conexion = null;
+    $con = null;
 } catch (PDOException $exp) {
     echo "Error al consultar la base de datos: " . $exp->getMessage();
 }
