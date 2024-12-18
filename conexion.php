@@ -15,7 +15,7 @@ try {
         $correo = $_POST['Correo'];
 
         // Consulta SQL para insertar los datos
-        $sql = "INSERT INTO usuarios (nombre, telefono, clave, correo) VALUES (:nombre, :telefono, :clave, :correo)";
+        $sql = "INSERT INTO empleados (nombre, telefono, clave, correo) VALUES (:nombre, :telefono, :clave, :correo)";
         $stmt = $conn->prepare($sql);
 
         // Ejecutar la consulta con parámetros
