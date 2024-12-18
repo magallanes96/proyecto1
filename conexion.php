@@ -26,7 +26,7 @@ try {
             ':Correo' => $Correo,
         ]);
 
-        echo "¡Usuario agregado correctamente!";
+        header("Location: agregar.php");
     } else {
         echo "Por favor, completa todos los campos del formulario.";
     }
