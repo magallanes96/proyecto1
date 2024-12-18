@@ -18,9 +18,9 @@
       </nav>
     </header>
     <div class="form-container">
-        <h3>Agregara Nuevos Usuarios</h3>
+        <h3>Agregar Nuevos Usuarios</h3>
         <h2>Llena todos los campos</h2>
-        <form class="form" action="conexion1.php" method="POST">
+        <form class="form" action="conexion.php" method="POST">
             <div class="input-group">
                 <label for="Nombre">Nombre completo</label>
                 <input type="text" name="Nombre" id="Nombre" placeholder="">
