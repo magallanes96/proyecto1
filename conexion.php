@@ -7,22 +7,22 @@ try {
    
 
     // Ejecuta una consulta de prueba
-  if (isset($_POST['Nombre'], $_POST['Edad'], $_POST['Telefono'], $_POST['Correo'])) {
+  if (isset($_POST['Nombre'], $_POST['Telefono'], $_POST['Clave'], $_POST['Correo'])) {
         // Recoger datos del formulario
         $nombre = $_POST['Nombre'];
-        $edad = $_POST['Edad'];
         $telefono = $_POST['Telefono'];
+        $clave = $_POST['Clave];
         $correo = $_POST['Correo'];
 
         // Consulta SQL para insertar los datos
-        $sql = "INSERT INTO usuarios (nombre, edad, telefono, correo) VALUES (:nombre, :edad, :telefono, :correo)";
+        $sql = "INSERT INTO usuarios (nombre, telefono, clave, correo) VALUES (:nombre, :telefono, :clave, :correo)";
         $stmt = $conn->prepare($sql);
 
         // Ejecutar la consulta con parámetros
         $stmt->execute([
             ':nombre' => $nombre,
-            ':edad' => $edad,
             ':telefono' => $telefono,
+            ':clave' => $clave,
             ':correo' => $correo,
         ]);
 
