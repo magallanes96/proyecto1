@@ -14,7 +14,7 @@
         <button><span><a href="inicio.html">Inicio</a></span></button>
         <button><span><a href="agregar.php">Agregar accesos</a></span></button>
         <button><span><a href="services.html">eliminar accesos</a></span></button>
-        <button><span><a href="contact.html">Dar acceso</a></span></button>
+        <button><span><a href="entradas.php">acceso</a></span></button>
       </nav>
     </header>
     <div class="form-container">
