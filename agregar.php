@@ -48,7 +48,7 @@
                 
 <?php
 
-include_once 'conexion.php';
+
 
 try {
     // Crear una instancia de conexión
