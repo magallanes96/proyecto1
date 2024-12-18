@@ -55,7 +55,7 @@ try {
     $conn = new PDO("sqlsrv:server = tcp:memo96.database.windows.net,1433; Database = SafePass", "memo96", "Hmcrgl09");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Consulta SQL
-    $sql = "SELECT id, fecha, temperatura, hora, estado FROM registro";
+    $sql = "SELECT id_registro, fecha, temperatura, hora, estado FROM registro";
     $stmt = $conn->query($sql);
     //$stmt->execute();
 
