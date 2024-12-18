@@ -72,7 +72,7 @@ try {
     // Mostrar los resultados en la tabla
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>
-                <td>" . htmlspecialchars($row['id']) . "</td>
+                <td>" . htmlspecialchars($row['id_registro']) . "</td>
                 <td>" . htmlspecialchars($row['fecha']) . "</td>
                 <td>" . htmlspecialchars($row['temperatura']) . "</td>
                 <td>" . htmlspecialchars($row['hora']) . "</td>
