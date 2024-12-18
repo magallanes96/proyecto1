@@ -52,10 +52,10 @@ include_once 'conexion.php';
 
 try {
     // Crear una instancia de conexión
-    $conexion = conexion::ConexionBD();
-
+    $conn = new PDO("sqlsrv:server = tcp:memo96.database.windows.net,1433; Database = SafePass", "memo96", "Hmcrgl09");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Consulta SQL
-    $sql = "SELECT id, username, password FROM usuarios";
+    $sql = "SELECT id, fecha, temperatura, hora, estado FROM registro";
     $stmt = $conexion->prepare($sql);
     $stmt->execute();
 
@@ -63,17 +63,20 @@ try {
     echo "<table border='1'>
             <tr>
                 <th>ID</th>
-                <th>username</th>
-                <th>password</th>
-               // <th>Teléfono</th>
+                <th>Fecha</th>
+                <th>Temperatura</th>
+                <th>Hora</th>
+                <th>Estado</th>
             </tr>";
 
     // Mostrar los resultados en la tabla
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>
                 <td>" . htmlspecialchars($row['id']) . "</td>
-                <td>" . htmlspecialchars($row['username']) . "</td>
-                <td>" . htmlspecialchars($row['password']) . "</td>
+                <td>" . htmlspecialchars($row['fecha']) . "</td>
+                <td>" . htmlspecialchars($row['temperatura']) . "</td>
+                <td>" . htmlspecialchars($row['hora']) . "</td>
+                <td>" . htmlspecialchars($row['estado']) . "</td>
                
               </tr>";
     }
