@@ -11,7 +11,7 @@ try {
         // Recoger datos del formulario
         $Nombre = $_POST['Nombre'];
         $Telefono = $_POST['Telefono'];
-        $Clave = $_POST['Clave];
+        $Clave = $_POST['Clave'];
         $Correo = $_POST['Correo'];
 
         // Consulta SQL para insertar los datos
