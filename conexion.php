@@ -1,24 +1,40 @@
 <?php
-header("Content-Type: application/json"); 
+
 try {
     $conn = new PDO("sqlsrv:server = tcp:memo96.database.windows.net,1433; Database = SafePass", "memo96", "Hmcrgl09");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "Conexión exitosa a Azure SQL Database.<br>";
+   
 
     // Ejecuta una consulta de prueba
-   $sql = "SELECT id, fecha, hora, temperatura, estado, id_empleado FROM tu_tabla";
-    $stmt = $conn->query($sql);
+  if (isset($_POST['Nombre'], $_POST['Edad'], $_POST['Telefono'], $_POST['Correo'])) {
+        // Recoger datos del formulario
+        $nombre = $_POST['Nombre'];
+        $edad = $_POST['Edad'];
+        $telefono = $_POST['Telefono'];
+        $correo = $_POST['Correo'];
 
-    // Obtener resultados como un array
-    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // Consulta SQL para insertar los datos
+        $sql = "INSERT INTO usuarios (nombre, edad, telefono, correo) VALUES (:nombre, :edad, :telefono, :correo)";
+        $stmt = $conn->prepare($sql);
 
-    // Devolver los datos como JSON
-    echo json_encode($data);
-} catch (Exception $e) {
-    // En caso de error, devolver un mensaje JSON
-    echo json_encode(["error" => $e->getMessage()]);
+        // Ejecutar la consulta con parámetros
+        $stmt->execute([
+            ':nombre' => $nombre,
+            ':edad' => $edad,
+            ':telefono' => $telefono,
+            ':correo' => $correo,
+        ]);
+
+        echo "¡Usuario agregado correctamente!";
+    } else {
+        echo "Por favor, completa todos los campos del formulario.";
+    }
+} catch (PDOException $e) {
+    echo "Error al conectar o insertar en la base de datos: " . $e->getMessage();
 }
+
+// Cerrar la conexión
+$conn = null;
 ?>
-   
 
