@@ -26,15 +26,15 @@
                 <input type="text" name="Nombre" id="Nombre" placeholder="">
             </div>
             <div class="input-group">
-                <label for="Edad">Edad</label>
+                <label for="Telefono">Telefono</label>
+                <input type="text" name="Telefono" id="Telefono" placeholder="">
+            </div> 
+            <div class="input-group">
+                <label for="Clave">N. Tarjeta</label>
                 <input type="text" name="Edad" id="Edad" placeholder="">
             </div>
             <div class="input-group">
-                <label for="Telefono">Telefono</label>
-                <input type="text" name="Telefono" id="Telefono" placeholder="">
-            </div>
-            <div class="input-group">
-                <label for="Correo">N.Tarjeta</label>
+                <label for="Correo">Correo</label>
                 <input type="text" name="Correo" id="Correo" placeholder="">
             </div>
             <button type="submit">Agregar </button>
