@@ -9,21 +9,21 @@ try {
     // Ejecuta una consulta de prueba
   if (isset($_POST['Nombre'], $_POST['Telefono'], $_POST['Clave'], $_POST['Correo'])) {
         // Recoger datos del formulario
-        $nombre = $_POST['Nombre'];
-        $telefono = $_POST['Telefono'];
-        $clave = $_POST['Clave];
-        $correo = $_POST['Correo'];
+        $Nombre = $_POST['Nombre'];
+        $Telefono = $_POST['Telefono'];
+        $Clave = $_POST['Clave];
+        $Correo = $_POST['Correo'];
 
         // Consulta SQL para insertar los datos
-        $sql = "INSERT INTO empleados (nombre, telefono, clave, correo) VALUES (:nombre, :telefono, :clave, :correo)";
+        $sql = "INSERT INTO empleados (Nombre, Telefono, Clave, Correo) VALUES (:Nombre, :Telefono, :Clave, :Correo)";
         $stmt = $conn->prepare($sql);
 
         // Ejecutar la consulta con parámetros
         $stmt->execute([
-            ':nombre' => $nombre,
-            ':telefono' => $telefono,
-            ':clave' => $clave,
-            ':correo' => $correo,
+            ':Nombre' => $Nombre,
+            ':Telefono' => $Telefono,
+            ':Clave' => $Clave,
+            ':Correo' => $Correo,
         ]);
 
         echo "¡Usuario agregado correctamente!";
