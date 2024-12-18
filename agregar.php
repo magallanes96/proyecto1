@@ -55,7 +55,7 @@ try {
     $conn = new PDO("sqlsrv:server = tcp:memo96.database.windows.net,1433; Database = SafePass", "memo96", "Hmcrgl09");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Consulta SQL
-    $sql = "SELECT id_registro, fecha, temperatura, hora, estado FROM registro";
+    $sql = "SELECT id_empleado, nombre, telefono, clave, correo FROM empleados";
     $stmt = $conn->query($sql);
     //$stmt->execute();
 
@@ -63,20 +63,20 @@ try {
     echo "<table border='1'>
             <tr>
                 <th>ID</th>
-                <th>Fecha</th>
-                <th>Temperatura</th>
-                <th>Hora</th>
-                <th>Estado</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>CLave</th>
+                <th>Correo</th>
             </tr>";
 
     // Mostrar los resultados en la tabla
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>
-                <td>" . htmlspecialchars($row['id_registro']) . "</td>
-                <td>" . htmlspecialchars($row['fecha']) . "</td>
-                <td>" . htmlspecialchars($row['temperatura']) . "</td>
-                <td>" . htmlspecialchars($row['hora']) . "</td>
-                <td>" . htmlspecialchars($row['estado']) . "</td>
+                <td>" . htmlspecialchars($row['id_empleado']) . "</td>
+                <td>" . htmlspecialchars($row['nombre']) . "</td>
+                <td>" . htmlspecialchars($row['telefono']) . "</td>
+                <td>" . htmlspecialchars($row['clave']) . "</td>
+                <td>" . htmlspecialchars($row['correo']) . "</td>
                
               </tr>";
     }
