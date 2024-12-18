@@ -31,7 +31,7 @@
             </div> 
             <div class="input-group">
                 <label for="Clave">N. Tarjeta</label>
-                <input type="text" name="Edad" id="Edad" placeholder="">
+                <input type="text" name="Clave" id="Clave" placeholder="">
             </div>
             <div class="input-group">
                 <label for="Correo">Correo</label>
