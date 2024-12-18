@@ -56,7 +56,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Consulta SQL
     $sql = "SELECT id, fecha, temperatura, hora, estado FROM registro";
-    $stmt = $con->prepare($sql);
+    $stmt = $conn->query($sql);
     //$stmt->execute();
 
     // Crear tabla HTML
@@ -83,7 +83,7 @@ try {
     echo "</table>";
 
     // Cerrar la conexión
-    $con = null;
+    $conn = null;
 } catch (PDOException $exp) {
     echo "Error al consultar la base de datos: " . $exp->getMessage();
 }
