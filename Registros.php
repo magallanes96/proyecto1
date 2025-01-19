@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $temperatura = $input['temperatura'] ?? null;
     $estado = $input['estado'] ?? null;
     $id_empleado = $input['id_empleado'] ?? null;
-
+   var_dump($input);
     if ($fecha_hora && $temperatura && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
        
