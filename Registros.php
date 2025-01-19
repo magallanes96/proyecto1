@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } else {
         echo json_encode(array("error" => "Datos incompletos."));
-      print_r($params);
+      print_r($stmt);
     }
 } else {
     echo json_encode(array("error" => "Método no permitido."));
