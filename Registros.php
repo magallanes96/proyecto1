@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt === false) {
             die(json_encode(array("error" => "Error al insertar datos.")));
+          echo json_encode(array($params));
         } else {
             echo json_encode(array("mensaje" => "Datos registrados correctamente."));
         }
@@ -55,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     echo json_encode(array("error" => "Método no permitido."));
+  echo json_encode(array($params));
 }
 
 if ($stmt === false) {
