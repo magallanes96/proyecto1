@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sqlCheckRFID = "SELECT id_empleado FROM empleados WHERE clave = ?";
         $paramsCheckRFID = array($clave);
         $stmtCheckRFID = sqlsrv_query($conn, $sqlCheckRFID, $paramsCheckRFID);
-
+        echo json_encode(array("id_empleado" => $id_empleado));
         if ($stmtCheckRFID === false) {
             $errors = sqlsrv_errors();
             die(json_encode(array("error" => "Error en la consulta RFID.", "detalles" => $errors)));
