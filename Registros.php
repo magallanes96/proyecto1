@@ -37,9 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estado = $input['estado'] ?? null;
     $id_empleado = $input['id_empleado'] ?? null;
    var_dump($input);
-    if ($temperatura && $estado && $id_empleado) {
+    //if ($temperatura && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
-       
+     $temperatura = 36.5; // Cambia esto por la temperatura deseada
+$estado = 'normal';   // Cambia esto por el estado deseado
+$id_empleado = 1;   
+ 
         $sql = "INSERT INTO registro (fecha_hora,temperatura,estado,id_empleado) VALUES (GATEDATE(),?,?,? )";
         $params = array($temperatura, $estado, $id_empleado);
         $stmt = sqlsrv_query($conn, $sql, $params);
@@ -50,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo json_encode(array("mensaje" => "Datos registrados correctamente."));
         }
-    } else {
+   // } else {
         echo json_encode(array("error" => "Datos incompletos."));
       print_r($params);
     }
@@ -59,14 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   echo json_encode(array($params));
 }
 
-if ($stmt === false) {
-    $errors = sqlsrv_errors();
-    $errorMsg = "";
-    foreach ($errors as $error) {
-        $errorMsg .= "SQLSTATE: " . $error['SQLSTATE'] . " - " . $error['message'] . "<br />";
-    }
-    die(json_encode(array("error" => "Error al insertar datos: " . $errorMsg)));
-}
+
 
 // Cerrar conexión
 sqlsrv_close($conn);
