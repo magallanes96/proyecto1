@@ -4,7 +4,7 @@ $serverName = "tcp:memo96.database.windows.net,1433";
 $connectionOptions = array(
     "Database" => "SafePass",
     "Uid" => "memo96",
-    "PWD" => "tuContraseña",
+    "PWD" => "Hmcrgl09",
     "Encrypt" => true,
     "TrustServerCertificate" => false
 );
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($rfid && $temperatura) {
         // Consulta para insertar datos en la base
-        $sql = "INSERT INTO accesos (rfid, temperatura, fecha) VALUES (?, ?, GETDATE())";
+        $sql = "INSERT INTO empleados (fecha, temperatura, hora, estado, id_empleado) VALUES (GETDATE(),?,?,?,? )";
         $params = array($rfid, $temperatura);
         $stmt = sqlsrv_query($conn, $sql, $params);
 
