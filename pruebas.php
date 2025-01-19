@@ -72,3 +72,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Cerrar conexión
 sqlsrv_close($conn);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleCrud.css">
+    <link rel="preload" href="styleCrud.css" as="style">
+    <title>Cabina</title>
+</head>
+<body>
+<header>
+<nav class="navegacion-principal">
+        <button><span><a href="inicio.html">Inicio</a></span></button>
+        <button><span><a href="agregar.php">Agregar accesos</a></span></button>
+        <button><span><a href="services.html">eliminar accesos</a></span></button>
+        <button><span><a href="contact.html">Dar acceso</a></span></button>
+      </nav>
+</header>
+<head>
+<h3> Bienvenido!!!</h3>
+</head>  
