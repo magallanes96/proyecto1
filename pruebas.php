@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Insertar datos en la tabla registro
-    $sqlInsert = "INSERT INTO registro (fecha_hora, temperatura, estado, id_empleado) VALUES (GETDATE(), ?, ?, ?)";
+    $sqlInsert = "INSERT INTO registros (fecha_hora, temperatura, estado, id_empleado) VALUES (GETDATE(), ?, ?, ?)";
     $paramsInsert = array($temperatura, $estado, $id_empleado);
     $stmtInsert = sqlsrv_query($conn, $sqlInsert, $paramsInsert);
 
