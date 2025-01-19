@@ -16,6 +16,17 @@ if (!$conn) {
 }
 
 
+// Conectar a la base de datos
+$conn = sqlsrv_connect($serverName, $connectionOptions);
+if (!$conn) {
+    die(json_encode(array("error" => "Error en la conexión a la base de datos.")));
+} else {
+    // Si deseas ver un mensaje de éxito al conectarte
+    echo json_encode(array("mensaje" => "Conexión exitosa a la base de datos."));
+}
+
+
+
 // Procesar solicitud POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Leer datos enviados por el ESP32
@@ -43,6 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     echo json_encode(array("error" => "Método no permitido."));
+}
+
+if ($stmt === false) {
+    $errors = sqlsrv_errors();
+    $errorMsg = "";
+    foreach ($errors as $error) {
+        $errorMsg .= "SQLSTATE: " . $error['SQLSTATE'] . " - " . $error['message'] . "<br />";
+    }
+    die(json_encode(array("error" => "Error al insertar datos: " . $errorMsg)));
 }
 
 // Cerrar conexión
