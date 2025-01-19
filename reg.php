@@ -55,6 +55,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errors = sqlsrv_errors();
                 die(json_encode(array("error" => "Error al insertar datos.", "detalles" => $errors)));
             } else {
+                // Responder con el id_empleado y un mensaje de éxito
+                echo json_encode(array(
+                    "mensaje" => "Datos registrados correctamente.",
+                    "id_empleado" => $id_empleado
+                ));
+            }
+        }else{
                 echo json_encode(array("mensaje" => "Datos registrados correctamente."));
             }
         } else {
