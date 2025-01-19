@@ -1,4 +1,13 @@
 <?php
+// Configuración de la conexión a la base de datos
+$serverName = "tcp:memo96.database.windows.net,1433";
+$connectionOptions = array(
+    "Database" => "SafePass",
+    "Uid" => "memo96",
+    "PWD" => "Hmcrgl09",
+    "Encrypt" => true,
+    "TrustServerCertificate" => false
+);
 // Crear la conexión
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 
