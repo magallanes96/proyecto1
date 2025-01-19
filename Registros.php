@@ -21,14 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents("php://input"), true);
     //$rfid = $input['rfid'] ?? null;
     $temperatura = $input['temperatura'] ?? null;
-    $hora = $input['hora'] ?? null;
-    $estado = $input['estado'] ?? null;
+       $estado = $input['estado'] ?? null;
     $id_empleado = $input['id_empleado'] ?? null;
 
-    if ($temperatura && $hora && $estado && $id_empleado) {
+    if ($temperatura && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
         $sql = "INSERT INTO empleados (fecha, temperatura, hora, estado, id_empleado) VALUES (CAST(GETDATE() AS DATE) ,?,CAST(GETDATE() AS TIME),?,? )";
-        $params = array($temperatura, $hora, $estado, $id_empleado);
+        $params = array($temperatura, $estado, $id_empleado);
         $stmt = sqlsrv_query($conn, $sql, $params);
 
         if ($stmt === false) {
