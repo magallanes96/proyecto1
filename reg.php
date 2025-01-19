@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($rfid) {
         // Verificar si la clave RFID existe en la base de datos
-        $sqlCheckRFID = "SELECT id_empleado FROM empleados WHERE rfid = ?";
+        $sqlCheckRFID = "SELECT id_empleado FROM empleados WHERE clave = ?";
         $paramsCheckRFID = array($rfid);
         $stmtCheckRFID = sqlsrv_query($conn, $sqlCheckRFID, $paramsCheckRFID);
 
