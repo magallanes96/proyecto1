@@ -15,6 +15,7 @@ if (!$conn) {
     die(json_encode(array("error" => "Error en la conexión a la base de datos.")));
 }
 
+
 // Procesar solicitud POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Leer datos enviados por el ESP32
