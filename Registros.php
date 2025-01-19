@@ -21,16 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Leer datos enviados por el ESP32
     $input = json_decode(file_get_contents("php://input"), true);
     //$rfid = $input['rfid'] ?? null;
-    $fecha = $input['fecha'] ?? null;
-    $temperatura = $input['temperatura'] ?? null;
+    $fecha = $input['fecha'] ?? null; 
     $hora = $input['hora'] ?? null;
+    $temperatura = $input['temperatura'] ?? null;
+   
        $estado = $input['estado'] ?? null;
     $id_empleado = $input['id_empleado'] ?? null;
 
     if ($fecha && $temperatura && $hora && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
-        $sql = "INSERT INTO registro (fecha, temperatura, hora, estado, id_empleado) VALUES (? ,?,?,?,? )";
-        $params = array($fecha,$temperatura, $hora, $estado, $id_empleado);
+        $fecha_hora = $fecha . ' ' . $hora;
+        $sql = "INSERT INTO registro (fecha_hora, temperatura, estado, id_empleado) VALUES (? ,?,?,? )";
+        $params = array($fecha_hora,$temperatura, $estado, $id_empleado);
         $stmt = sqlsrv_query($conn, $sql, $params);
 
         if ($stmt === false) {
