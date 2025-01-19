@@ -1,14 +1,21 @@
 <?php
 // Configuración de la conexión a la base de datos
-$serverName = "tcp:memo96.database.windows.net,1433";
-$connectionOptions = array(
-    "Database" => "SafePass",
-    "Uid" => "memo96",
-    "PWD" => "Hmcrgl09",
-    "Encrypt" => true,
-    "TrustServerCertificate" => false
-);
-
+//$serverName = "tcp:memo96.database.windows.net,1433";
+//$connectionOptions = array(
+ //   "Database" => "SafePass",
+ //   "Uid" => "memo96",
+ //   "PWD" => "Hmcrgl09",
+ //   "Encrypt" => true,
+ //   "TrustServerCertificate" => false
+//);
+try {
+    $conn = new PDO("sqlsrv:server = tcp:memo96.database.windows.net,1433; Database = SafePass", "memo96", "{your_password_here}");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
+}
 // Conectar a la base de datos
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 if (!$conn) {
