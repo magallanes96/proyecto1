@@ -28,15 +28,15 @@ if (!$conn) {
 
 
 // Procesar solicitud POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Leer datos enviados por el ESP32
-    $input = json_decode(file_get_contents("php://input"), true);
+ //   $input = json_decode(file_get_contents("php://input"), true);
     //$rfid = $input['rfid'] ?? null;
    // $fecha_hora = $input['fecha_hora'] ?? null; 
-    $temperatura = $input['temperatura'] ?? null;
-    $estado = $input['estado'] ?? null;
-    $id_empleado = $input['id_empleado'] ?? null;
-   var_dump($input);
+ //   $temperatura = $input['temperatura'] ?? null;
+ //   $estado = $input['estado'] ?? null;
+ //   $id_empleado = $input['id_empleado'] ?? null;
+//   var_dump($input);
     //if ($temperatura && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
      $temperatura = 36.5; // Cambia esto por la temperatura deseada
@@ -57,10 +57,10 @@ $id_empleado = 1;
         echo json_encode(array("error" => "Datos incompletos."));
       print_r($params);
     }
-} else {
-    echo json_encode(array("error" => "Método no permitido."));
-  echo json_encode(array($params));
-}
+//} else {
+  //  echo json_encode(array("error" => "Método no permitido."));
+ // echo json_encode(array($params));
+//}
 
 
 
