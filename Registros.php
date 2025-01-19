@@ -66,8 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     } else {
         echo json_encode(array("error" => "Clave RFID no proporcionada."));
-    }
-} else {
+    } else {
     echo json_encode(array("error" => "Método no permitido."));
 }
 
