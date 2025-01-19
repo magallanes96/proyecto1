@@ -28,21 +28,18 @@ if (!$conn) {
 
 
 // Procesar solicitud POST
-//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Leer datos enviados por el ESP32
- //   $input = json_decode(file_get_contents("php://input"), true);
-    //$rfid = $input['rfid'] ?? null;
-   // $fecha_hora = $input['fecha_hora'] ?? null; 
- //   $temperatura = $input['temperatura'] ?? null;
- //   $estado = $input['estado'] ?? null;
- //   $id_empleado = $input['id_empleado'] ?? null;
-//   var_dump($input);
-    //if ($temperatura && $estado && $id_empleado) {
+    $input = json_decode(file_get_contents("php://input"), true);
+    $rfid = $input['rfid'] ?? null;
+    $fecha_hora = $input['fecha_hora'] ?? null; 
+    $temperatura = $input['temperatura'] ?? null;
+    $estado = $input['estado'] ?? null;
+    $id_empleado = $input['id_empleado'] ?? null;
+   var_dump($input);
+    if ($temperatura && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
-     $temperatura = 36.5; // Cambia esto por la temperatura deseada
-$estado = 'normal';   // Cambia esto por el estado deseado
-$id_empleado = 1;   
- 
+   
         $sql = "INSERT INTO registro (fecha_hora,temperatura,estado,id_empleado) VALUES (GATEDATE(),?,?,? )";
         $params = array($temperatura, $estado, $id_empleado);
         $stmt = sqlsrv_query($conn, $sql, $params);
@@ -53,14 +50,14 @@ $id_empleado = 1;
         } else {
             echo json_encode(array("mensaje" => "Datos registrados correctamente."));
         }
-   // } else {
+    } else {
         echo json_encode(array("error" => "Datos incompletos."));
       print_r($params);
     }
-//} else {
-  //  echo json_encode(array("error" => "Método no permitido."));
- // echo json_encode(array($params));
-//}
+} else {
+    echo json_encode(array("error" => "Método no permitido."));
+  echo json_encode(array($params));
+}
 
 
 
