@@ -21,14 +21,14 @@ if (!$conn) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Leer datos enviados por el ESP32
     $input = json_decode(file_get_contents("php://input"), true);
-    $rfid = $input['rfid'] ?? null;
+    $clave = $input['clave'] ?? null;
     $temperatura = $input['temperatura'] ?? null;
     $estado = $input['estado'] ?? null;
 
-    if ($rfid) {
+    if ($clave) {
         // Verificar si la clave RFID existe en la base de datos
         $sqlCheckRFID = "SELECT id_empleado FROM empleados WHERE clave = ?";
-        $paramsCheckRFID = array($rfid);
+        $paramsCheckRFID = array($clave);
         $stmtCheckRFID = sqlsrv_query($conn, $sqlCheckRFID, $paramsCheckRFID);
 
         if ($stmtCheckRFID === false) {
