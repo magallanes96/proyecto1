@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estado = $input['estado'] ?? null;
     $id_empleado = $input['id_empleado'] ?? null;
 
-    if ($rfid && $temperatura) {
+    if ($temperatura && $hora && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
         $sql = "INSERT INTO empleados (fecha, temperatura, hora, estado, id_empleado) VALUES (GETDATE(),?,?,?,? )";
         $params = array($temperatura, $hora, $estado, $id_empleado);
