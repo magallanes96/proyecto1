@@ -51,11 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($temperatura && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
    
-        $sql = "INSERT INTO registro (fecha_hora,temperatura,estado,id_empleado) VALUES (GATEDATE(),?,?,? )";
+        $sql = "INSERT INTO registro (fecha_hora,temperatura,estado,id_empleado) VALUES (GETDATE(),?,?,? )";
         $params = array($temperatura, $estado, $id_empleado);
         $stmt = sqlsrv_query($conn, $sql, $params);
 
-        if ($stmtInsert === false) {
+        if ($stmt === false) {
                 $errors = sqlsrv_errors();
                 die(json_encode(array("error" => "Error al insertar datos.", "detalles" => $errors)));
             } else {
