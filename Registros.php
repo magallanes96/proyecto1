@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($temperatura && $hora && $estado && $id_empleado) {
         // Consulta para insertar datos en la base
-        $sql = "INSERT INTO empleados (fecha, temperatura, hora, estado, id_empleado) VALUES (GETDATE(),?,?,?,? )";
+        $sql = "INSERT INTO empleados (fecha, temperatura, hora, estado, id_empleado) VALUES (CAST(GETDATE() AS DATE) ,?,CAST(GETDATE() AS TIME),?,? )";
         $params = array($temperatura, $hora, $estado, $id_empleado);
         $stmt = sqlsrv_query($conn, $sql, $params);
 
