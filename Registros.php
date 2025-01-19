@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt === false) {
             die(json_encode(array("error" => "Error al insertar datos.")));
-          echo json_encode(array($params));
+          echo json_encode(array($stmt));
         } else {
             echo json_encode(array("mensaje" => "Datos registrados correctamente."));
         }
