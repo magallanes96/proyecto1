@@ -1,5 +1,5 @@
 <?php
- Configuración de la conexión a la base de datos
+ //Configuración de la conexión a la base de datos
 $serverName = "tcp:memo96.database.windows.net,1433";
 $connectionOptions = array(
     "Database" => "SafePass",
