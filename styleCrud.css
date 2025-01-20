@@ -132,3 +132,11 @@ body {
         font-size: 14px;
         color: #555;
     }
+.boton .diseno{
+    width: 32px; height: 32px;
+    background: url('img/diseno.png') center;
+       margin-top: 0px;
+       text-align: center;
+           display: inline-block;
+                margin:0 5;
+}
