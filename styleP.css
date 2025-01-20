@@ -1,80 +1,113 @@
-body {
-    background-image: url('principal.svg');
-    background-size: cover; /* Hace que la imagen ocupe todo el fondo */
-    background-position: center; /* Centra la imagen */
-    /*background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-color: rgba(144, 156, 244, 0.411);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleP.css">
+    <link rel="preload" href="styleP.css" as="style">
+    <title>Acceso seguro</title>
+    <style>
+        /* Reinicio básico */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-  }
+        /* Estilo para el header */
+        header {
+            position: relative; /* Permite usar posicionamiento absoluto para los elementos hijos */
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+        }
 
-  .full-image {
-    width: 100vw; /* Ocupa todo el ancho de la ventana */
-    height: 100vh; /* Ocupa todo el alto de la ventana */
-    object-fit: center; /* Hace que la imagen mantenga su proporción mientras cubre todo el contenedor */
-    position: center; /* Permite que ocupe toda la pantalla */
-    top: 0;
-    left: 0;
-  }
+        /* Estilo para el logo */
+        header .logo {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            max-height: 60px; /* Tamaño del logo */
+        }
 
-  /*Botones*/
-  /* Estilo general para los botones */
-button {
-    align-items: center;
-    background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
-    border: 0;
-    border-radius: 8px;
-    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-    box-sizing: border-box;
-    color: #ffffff;
-    display: flex;
-    font-size: 18px;
-    justify-content: center;
-    line-height: 1em;
-    max-width: 100%;
-    min-width: 140px;
-    padding: 3px;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  button:active,
-  button:hover {
-    outline: 0;
-  }
-  
-  button span {
-    background-color: rgb(5, 6, 45);
-    padding: 16px 24px;
-    border-radius: 6px;
-    width: 100%;
-    height: 100%;
-    transition: 300ms;
-  }
-  
-  button:hover span {
-    background: none;
-  }
-  
-  button:active {
-    transform: scale(0.9);
-  }
-  
-  /* Aseguramos que los enlaces dentro de los botones no tengan subrayado */
-  button a {
-    color: #ffffff;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-  .navegacion-principal {
-    display: flex;
-    justify-content: center; /* Centra los botones horizontalmente */
-    align-items: center; /* Centra los botones verticalmente */
-   /* height: 100vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
-  }  
+        /* Navegación principal */
+        .navegacion-principal {
+            display: flex;
+            justify-content: center; /* Centra los botones horizontalmente */
+            gap: 10px; /* Espacio entre botones */
+            margin-top: 20px; /* Espacio bajo el logo */
+        }
+
+        .navegacion-principal button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navegacion-principal button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .navegacion-principal button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Imagen de fondo */
+        .full-image {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Texto centrado */
+        .titulo {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo en la esquina superior izquierda -->
+        <img src="logo.png" alt="Logo" class="logo">
+        <!-- Navegación principal centrada -->
+        <nav class="navegacion-principal">
+            <button><a href="principal.html">Inicio</a></button>
+            <button><a href="seson.html">Iniciar sesión</a></button>
+            <button><a href="services.html">Servicios</a></button>
+            <button><a href="contact.html">Contacto</a></button>
+        </nav>
+    </header>
+
+    <!-- Sección de bienvenida -->
+    <section>
+        <h2>Guillermo</h2>
+        <img src="img/1223.webp" alt="Imagen de fondo" class="full-image">
+    </section>
+
+    <!-- Contenido principal -->
+    <div class="nav">
+        <h1 class="titulo">Protección Integral para Todos: Innovación en Higiene con Nuestras Cabinas Sanitizantes</h1>
+    </div>
+
+    <h2>En un mundo donde la seguridad sanitaria es primordial, las cabinas sanitizantes se han convertido en una herramienta 
+        esencial para proteger a las personas en espacios concurridos. Ofrecemos soluciones innovadoras que eliminan bacterias, 
+        virus y otros agentes contaminantes de manera rápida y eficiente.</h2>
+
+    <h1>¿Qué es una Cabina Sanitizante?</h1>
+    <h2> 
+        Una cabina sanitizante es un dispositivo diseñado para la desinfección completa de personas, objetos o productos antes de ingresar a un área específica. Utiliza tecnologías avanzadas como:
+    </h2>
+    <ul>
+        <li>Nebulización de desinfectantes no tóxicos.</li>
+        <li>Luz ultravioleta (UV-C) para la desinfección sin contacto.</li>
+        <li>Sistema de ventilación controlada para una experiencia segura y cómoda.</li>
+    </ul>
+
+    <!-- Footer -->
+    <footer>
+        <p>Derechos reservados</p>
+    </footer>
+</body>
+</html>
