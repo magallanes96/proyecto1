@@ -134,7 +134,7 @@ body {
     }
 .boton .diseno{
     width: 32px; height: 32px;
-    background: url('img/diseno.png') center;
+    background: url('logo.png') center;
        margin-top: 0px;
        text-align: center;
            display: inline-block;
