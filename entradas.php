@@ -25,7 +25,7 @@ try {
     $conn = new PDO("sqlsrv:server = tcp:memo96.database.windows.net,1433; Database = SafePass", "memo96", "Hmcrgl09");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // Consulta SQL
-    $sql = "SELECT id_registro, fecha, temperatura, hora, estado FROM registro";
+    $sql = "SELECT id_registro, fecha_hora, temperatura, estado FROM registros";
     $stmt = $conn->query($sql);
     //$stmt->execute();
 
@@ -33,9 +33,8 @@ try {
     echo "<table border='1'>
             <tr>
                 <th>ID</th>
-                <th>Fecha</th>
+                <th>Fecha y hora</th>
                 <th>Temperatura</th>
-                <th>Hora</th>
                 <th>Estado</th>
             </tr>";
 
@@ -43,9 +42,9 @@ try {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr>
                 <td>" . htmlspecialchars($row['id_registro']) . "</td>
-                <td>" . htmlspecialchars($row['fecha']) . "</td>
+                <td>" . htmlspecialchars($row['fecha_hora']) . "</td>
                 <td>" . htmlspecialchars($row['temperatura']) . "</td>
-                <td>" . htmlspecialchars($row['hora']) . "</td>
+            
                 <td>" . htmlspecialchars($row['estado']) . "</td>
                
               </tr>";
