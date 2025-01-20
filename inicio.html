@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="styleCrud.css">
     <link rel="preload" href="styleCrud.css" as="style">
     <title>Cabina</title>
+    <script>
+        function mostrarMensaje(event) {
+            event.preventDefault(); // Evita el envío del formulario inmediatamente
+            const mensaje = "Inicio de sesión exitoso. Redirigiendo...";
+            alert(mensaje); // Muestra el mensaje
+            // Simula un retraso antes de redirigir
+            setTimeout(() => {
+                document.getElementById("loginForm").submit(); // Envía el formulario
+            }, 2000); // 2 segundos de espera
+        }
+    </script>
 </head>
 <body>
 <header>
