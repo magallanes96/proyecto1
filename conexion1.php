@@ -27,6 +27,8 @@ try {
     if ($res) {
        
         header("Location:inicio.html");
+         echo "<script>alert('¡Error! Por favor, inténtalo de nuevo.');</script>";
+    
         exit();
     } else {
         //echo "Usuario o contraseña incorrectos.";
