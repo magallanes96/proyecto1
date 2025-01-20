@@ -25,8 +25,7 @@ try {
     $res->bindParam(':password', $pass);*/
   
     if ($res) {
-       echo "<script>alert('¡Error! Por favor, inténtalo de nuevo.');</script>";
-        
+       
     
         header("Location:inicio.html");
          
