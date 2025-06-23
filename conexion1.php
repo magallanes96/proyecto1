@@ -38,6 +38,8 @@ try {
     }
    
 } catch (PDOException $e) {
-    echo "Error de conexión: " . $e->getMessage();
+    //echo "Error de conexión: " . $e->getMessage();
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
 }
 ?>
