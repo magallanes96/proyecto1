@@ -25,13 +25,13 @@ try {
     $res->bindParam(':password', $pass);*/
   
     if ($res) {
-       
+        echo "Usuario o contraseña correctos.";
     
         header("Location:inicio.html");
          
         exit();
     } else {
-        //echo "Usuario o contraseña incorrectos.";
+        echo "Usuario o contraseña incorrectos.";
       //echo "<p class='error'>¡Se ha producido un error! Por favor, inténtalo de nuevo.</p>";
       echo "<script>alert('¡Error! Por favor, inténtalo de nuevo.');</script>";
       exit();
